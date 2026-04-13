@@ -635,14 +635,14 @@ $$\frac{\partial L}{\partial z_j} = -\sum_k y_k \frac{\partial \log \hat{y}_k}{\
 
 ### 梯度下降（GD）
 
-$$L(\mathbf{w}_T) - L(\mathbf{w}^{*}) \leq \frac{|\mathbf{w}_0 - \mathbf{w}^{*}|_2^2}{2\eta T}$$
+$$\mathbf{w}_{t+1} = \mathbf{w}_t - \eta \nabla L(\mathbf{w}_t)$$
 
 - $\eta$：学习率
 - 每次用**全部**训练样本计算梯度
 
 **收敛性**（凸函数情形）：若 $L$ 是 $\beta$-光滑凸函数，则：
 
-$$L(\mathbf{w}_T) - L(\mathbf{w}^*) \leq \frac{\|\mathbf{w}_0 - \mathbf{w}^*\|_2^2}{2\eta T}$$
+$$L(\mathbf{w}_T) - L(\mathbf{w}^*) \leq \frac{|\mathbf{w}_0 - \mathbf{w}^*|_2^2}{2\eta T}$$
 
 学习率选 $\eta \leq 1/\beta$ 时收敛。
 
