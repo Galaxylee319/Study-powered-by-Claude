@@ -40,17 +40,17 @@ $$c \mathbf{v} = \begin{pmatrix} c v_1 \\ c v_2 \end{pmatrix}$$
 
 ### 矩阵乘法
 
-矩阵 $A \in \mathbb{R}^{m \times k}$，$B \in \mathbb{R}^{k \times n}$，乘积 $C = AB \in \mathbb{R}^{m \times n}$：
+矩阵 $A \in \mathbb{R}^{m \times k}$， $B \in \mathbb{R}^{k \times n}$，乘积 $C = AB \in \mathbb{R}^{m \times n}$：
 
 $$C_{ij} = \sum_{l=1}^{k} A_{il} B_{lj}$$
 
-**直觉**：$A$ 的第 $i$ 行与 $B$ 的第 $j$ 列做内积，得到 $C$ 的 $(i,j)$ 元素。
+**直觉**： $A$ 的第 $i$ 行与 $B$ 的第 $j$ 列做内积，得到 $C$ 的 $(i,j)$ 元素。
 
 **ML 中的应用**：全连接层的前向传播就是矩阵乘法：
 
 $$\mathbf{h} = W \mathbf{x} + \mathbf{b}$$
 
-其中 $W \in \mathbb{R}^{d_{\text{out}} \times d_{\text{in}}}$，$\mathbf{x} \in \mathbb{R}^{d_{\text{in}}}$。
+其中 $W \in \mathbb{R}^{d_{\text{out}} \times d_{\text{in}}}$， $\mathbf{x} \in \mathbb{R}^{d_{\text{in}}}$。
 
 ```python
 import numpy as np
@@ -83,7 +83,7 @@ $$\mathbf{u}^T \mathbf{v} = \|\mathbf{u}\| \|\mathbf{v}\| \cos\theta$$
 - $\theta = 90°$：正交，内积为 0（无相关）
 - $\theta = 180°$：反向，内积最小（负相关）
 
-**ML 应用**：注意力机制中，Query 与 Key 的相似度用内积衡量：$\text{score} = \mathbf{q}^T \mathbf{k}$。
+**ML 应用**：注意力机制中，Query 与 Key 的相似度用内积衡量： $\text{score} = \mathbf{q}^T \mathbf{k}$。
 
 ### 范数（向量的"长度"）
 
@@ -126,7 +126,7 @@ print(np.linalg.norm(x, ord=np.inf))  # L∞: 4.0
 1. $T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T(\mathbf{v})$（可加性）
 2. $T(c\mathbf{u}) = c \cdot T(\mathbf{u})$（齐次性）
 
-**关键结论**：任何线性变换都可以用矩阵乘法表示：$T(\mathbf{x}) = A\mathbf{x}$。
+**关键结论**：任何线性变换都可以用矩阵乘法表示： $T(\mathbf{x}) = A\mathbf{x}$。
 
 常见线性变换的矩阵表示（二维）：
 
@@ -166,7 +166,7 @@ $$\mathbf{x}_{\text{新坐标}} = P^{-1} \mathbf{x}$$
 
 $$A \mathbf{v} = \lambda \mathbf{v}$$
 
-**直觉**：$\mathbf{v}$ 在 $A$ 的作用下只被拉伸（$|\lambda| > 1$）、压缩（$|\lambda| < 1$）或翻转（$\lambda < 0$），不改变方向。
+**直觉**： $\mathbf{v}$ 在 $A$ 的作用下只被拉伸（$|\lambda| > 1$）、压缩（$|\lambda| < 1$）或翻转（$\lambda < 0$），不改变方向。
 
 ### 求法
 
@@ -185,8 +185,8 @@ $$
 $$\det\begin{pmatrix} 3-\lambda & 1 \\ 0 & 2-\lambda \end{pmatrix} = (3-\lambda)(2-\lambda) = 0$$
 
 得 $\lambda_1 = 3, \lambda_2 = 2$。代回求特征向量：
-- $\lambda_1 = 3$：$(A - 3I)\mathbf{v} = \mathbf{0}$ → $\mathbf{v}_1 = (1, 0)^T$
-- $\lambda_2 = 2$：$(A - 2I)\mathbf{v} = \mathbf{0}$ → $\mathbf{v}_2 = (-1, 1)^T$
+- $\lambda_1 = 3$： $(A - 3I)\mathbf{v} = \mathbf{0}$ → $\mathbf{v}_1 = (1, 0)^T$
+- $\lambda_2 = 2$： $(A - 2I)\mathbf{v} = \mathbf{0}$ → $\mathbf{v}_2 = (-1, 1)^T$
 
 ### 特征分解（对角化）
 
@@ -194,7 +194,7 @@ $$\det\begin{pmatrix} 3-\lambda & 1 \\ 0 & 2-\lambda \end{pmatrix} = (3-\lambda)
 
 $$A = Q \Lambda Q^{-1}$$
 
-其中 $Q$ 的列为特征向量，$\Lambda = \text{diag}(\lambda_1, \ldots, \lambda_n)$。
+其中 $Q$ 的列为特征向量， $\Lambda = \text{diag}(\lambda_1, \ldots, \lambda_n)$。
 
 **实对称矩阵**的特征分解更优美（谱定理，见 1.7）：
 
@@ -215,8 +215,8 @@ print("特征向量:\n", eigenvectors)   # 列向量
 
 实对称矩阵 $A$ 称为：
 
-- **正定**（PD）：$\mathbf{x}^T A \mathbf{x} > 0$，对所有非零向量 $\mathbf{x}$
-- **半正定**（PSD）：$\mathbf{x}^T A \mathbf{x} \geq 0$，对所有向量 $\mathbf{x}$
+- **正定**（PD）： $\mathbf{x}^T A \mathbf{x} > 0$，对所有非零向量 $\mathbf{x}$
+- **半正定**（PSD）： $\mathbf{x}^T A \mathbf{x} \geq 0$，对所有向量 $\mathbf{x}$
 
 **等价条件**：
 - PD $\Leftrightarrow$ 所有特征值 $\lambda_i > 0$
@@ -286,7 +286,7 @@ $$R \approx U \Sigma V^T$$
 
 - $U$ 的行向量：用户的"潜在偏好"向量
 - $V$ 的行向量：物品的"潜在特征"向量
-- 预测未评分项：$\hat{R}_{ij} = \mathbf{u}_i^T \mathbf{v}_j$
+- 预测未评分项： $\hat{R}_{ij} = \mathbf{u}_i^T \mathbf{v}_j$
 
 ---
 
@@ -326,7 +326,7 @@ $$\det(A) = \prod_{i=1}^{n} \lambda_i$$
 
 $$A = Q \Lambda Q^T$$
 
-其中 $Q$ 的列是两两正交的单位特征向量，$\Lambda$ 是特征值构成的对角矩阵。
+其中 $Q$ 的列是两两正交的单位特征向量， $\Lambda$ 是特征值构成的对角矩阵。
 
 **意义**：实对称矩阵的特征向量构成 $\mathbb{R}^n$ 的一组正交基，原空间可以沿这些轴分解。
 
@@ -352,7 +352,7 @@ $$\lambda_{\min} \leq R(\mathbf{x}) \leq \lambda_{\max}$$
 
 ### 问题设定
 
-给定数据矩阵 $X \in \mathbb{R}^{n \times d}$（$n$ 个样本，$d$ 维特征），找一个方向 $\mathbf{w}$（$\|\mathbf{w}\|=1$），使投影 $X\mathbf{w}$ 的方差最大。
+给定数据矩阵 $X \in \mathbb{R}^{n \times d}$（$n$ 个样本， $d$ 维特征），找一个方向 $\mathbf{w}$（$\|\mathbf{w}\|=1$），使投影 $X\mathbf{w}$ 的方差最大。
 
 ### 推导
 
@@ -368,7 +368,7 @@ $$C = \frac{1}{n} X^T X \in \mathbb{R}^{d \times d}$$
 
 ### SVD 方法（等价且更数值稳定）
 
-对中心化数据矩阵做 SVD：$X = U \Sigma V^T$
+对中心化数据矩阵做 SVD： $X = U \Sigma V^T$
 
 主成分即 $V$ 的前 $k$ 列，降维结果为 $Z = X V_k \in \mathbb{R}^{n \times k}$。
 
@@ -401,7 +401,7 @@ print(f"前10个PC解释 {np.sum(explained_var[:10]):.1%} 方差")
 
 ### 问题
 
-给定 $X \in \mathbb{R}^{n \times d}$，$\mathbf{y} \in \mathbb{R}^n$，求 $\mathbf{w}$ 使残差平方和最小：
+给定 $X \in \mathbb{R}^{n \times d}$， $\mathbf{y} \in \mathbb{R}^n$，求 $\mathbf{w}$ 使残差平方和最小：
 
 $$\min_{\mathbf{w}} \|X\mathbf{w} - \mathbf{y}\|_2^2$$
 
@@ -417,7 +417,7 @@ $$\frac{\partial L}{\partial \mathbf{w}} = 2 X^T X \mathbf{w} - 2 X^T \mathbf{y}
 
 $$\underline{\boldsymbol{X^T X \mathbf{w}} = X^T \mathbf{y}}$$
 
-若 $X^T X$ 可逆：$\mathbf{w}^* = (X^T X)^{-1} X^T \mathbf{y}$
+若 $X^T X$ 可逆： $\mathbf{w}^* = (X^T X)^{-1} X^T \mathbf{y}$
 
 ### Moore-Penrose 伪逆
 
@@ -429,13 +429,13 @@ $$\mathbf{w}^* = X^+ \mathbf{y}, \quad X^+ = V \Sigma^+ U^T$$
 
 ### 正则化
 
-**Ridge（L2）**：$\min_{\mathbf{w}} \|X\mathbf{w} - \mathbf{y}\|_2^2 + \lambda\|\mathbf{w}\|_2^2$
+**Ridge（L2）**： $\min_{\mathbf{w}} \|X\mathbf{w} - \mathbf{y}\|_2^2 + \lambda\|\mathbf{w}\|_2^2$
 
-正规方程变为：$\mathbf{w}^* = (X^T X + \lambda I)^{-1} X^T \mathbf{y}$
+正规方程变为： $\mathbf{w}^* = (X^T X + \lambda I)^{-1} X^T \mathbf{y}$
 
 加 $\lambda I$ 确保矩阵可逆，且特征值从 $\sigma_i^2$ 变为 $\sigma_i^2 + \lambda$（数值更稳定）。
 
-**Lasso（L1）**：$\min_{\mathbf{w}} \|X\mathbf{w} - \mathbf{y}\|_2^2 + \lambda\|\mathbf{w}\|_1$
+**Lasso（L1）**： $\min_{\mathbf{w}} \|X\mathbf{w} - \mathbf{y}\|_2^2 + \lambda\|\mathbf{w}\|_1$
 
 无闭合解，需迭代求解。L1 正则化会产生稀疏解（部分权重恰好为 0）。
 
@@ -448,7 +448,7 @@ $$\mathbf{w}^* = X^+ \mathbf{y}, \quad X^+ = V \Sigma^+ U^T$$
 **方法**：对人脸数据集做 PCA，得到的主成分即"特征脸"（Eigenfaces）。
 
 1. 收集 $n$ 张人脸图像，每张展平为向量 $\mathbf{x}_i \in \mathbb{R}^d$
-2. 中心化：$\tilde{\mathbf{x}}_i = \mathbf{x}_i - \bar{\mathbf{x}}$
+2. 中心化： $\tilde{\mathbf{x}}_i = \mathbf{x}_i - \bar{\mathbf{x}}$
 3. 计算协方差矩阵的特征向量（或对数据矩阵做 SVD）
 4. 每张人脸 = 平均脸 + 若干特征脸的线性组合
 5. 用前 $k$ 个特征脸的系数表示人脸（大幅降维）
@@ -481,11 +481,11 @@ $$\nabla f = \left(\frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x
 
 **关键性质**：梯度指向函数增大最快的方向，模长等于该方向的方向导数。
 
-**示例**：$f(x_1, x_2) = x_1^2 + 2x_2^2$
+**示例**： $f(x_1, x_2) = x_1^2 + 2x_2^2$
 
 $$\nabla f = (2x_1, 4x_2)^T$$
 
-在 $(1, 1)$ 处：$\nabla f = (2, 4)^T$，指向东偏北方向。
+在 $(1, 1)$ 处： $\nabla f = (2, 4)^T$，指向东偏北方向。
 
 ### 方向导数
 
@@ -583,7 +583,7 @@ $$\frac{\partial L}{\partial W_1} = \frac{\partial L}{\partial h_2} \cdot \frac{
 
 ### 两层神经网络手动推导
 
-设网络：$\mathbf{h} = \sigma(W_1 \mathbf{x})$，$\hat{\mathbf{y}} = \text{softmax}(W_2 \mathbf{h})$，损失 $L = \text{CrossEntropy}(\hat{\mathbf{y}}, \mathbf{y})$
+设网络： $\mathbf{h} = \sigma(W_1 \mathbf{x})$， $\hat{\mathbf{y}} = \text{softmax}(W_2 \mathbf{h})$，损失 $L = \text{CrossEntropy}(\hat{\mathbf{y}}, \mathbf{y})$
 
 **前向传播**：
 
@@ -615,9 +615,9 @@ $$\frac{\partial L}{\partial W_1} = \frac{\partial L}{\partial \mathbf{z}_1} \cd
 
 ### Softmax + 交叉熵梯度推导
 
-**Softmax**：$\hat{y}_j = \frac{e^{z_j}}{\sum_k e^{z_k}}$
+**Softmax**： $\hat{y}_j = \frac{e^{z_j}}{\sum_k e^{z_k}}$
 
-**交叉熵**：$L = -\sum_j y_j \log \hat{y}_j$（one-hot 标签，真实类别为 $c$，即 $y_c = 1$，其余为 0）
+**交叉熵**： $L = -\sum_j y_j \log \hat{y}_j$（one-hot 标签，真实类别为 $c$，即 $y_c = 1$，其余为 0）
 
 $$\frac{\partial L}{\partial z_j} = \hat{y}_j - y_j$$
 
@@ -688,7 +688,7 @@ grad_norm = torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm)
 
 ### 拉格朗日乘子法（等式约束）
 
-问题：$\min f(\mathbf{x})$ s.t. $g(\mathbf{x}) = 0$
+问题： $\min f(\mathbf{x})$ s.t. $g(\mathbf{x}) = 0$
 
 引入拉格朗日函数：
 
@@ -698,7 +698,7 @@ $$\mathcal{L}(\mathbf{x}, \lambda) = f(\mathbf{x}) + \lambda g(\mathbf{x})$$
 
 $$\nabla_{\mathbf{x}} \mathcal{L} = \nabla f + \lambda \nabla g = \mathbf{0}$$
 
-**几何解释**：最优点处，$f$ 和 $g$ 的梯度平行（目标函数等值线与约束面相切）。
+**几何解释**：最优点处， $f$ 和 $g$ 的梯度平行（目标函数等值线与约束面相切）。
 
 **应用**：PCA 主成分推导中，最大化 $\mathbf{w}^T C \mathbf{w}$ 约束 $\|\mathbf{w}\|^2 = 1$：
 
@@ -708,14 +708,14 @@ $$\nabla_{\mathbf{w}} \mathcal{L} = 2C\mathbf{w} - 2\lambda\mathbf{w} = \mathbf{
 
 ### KKT 条件（不等式约束）
 
-问题：$\min f(\mathbf{x})$ s.t. $g_i(\mathbf{x}) \leq 0$，$h_j(\mathbf{x}) = 0$
+问题： $\min f(\mathbf{x})$ s.t. $g_i(\mathbf{x}) \leq 0$， $h_j(\mathbf{x}) = 0$
 
 **KKT 条件**（必要条件）：
 
-1. **平稳性**：$\nabla f + \sum_i \mu_i \nabla g_i + \sum_j \lambda_j \nabla h_j = \mathbf{0}$
-2. **原始可行性**：$g_i(\mathbf{x}) \leq 0$，$h_j(\mathbf{x}) = 0$
-3. **对偶可行性**：$\mu_i \geq 0$
-4. **互补松弛**：$\mu_i g_i(\mathbf{x}) = 0$
+1. **平稳性**： $\nabla f + \sum_i \mu_i \nabla g_i + \sum_j \lambda_j \nabla h_j = \mathbf{0}$
+2. **原始可行性**： $g_i(\mathbf{x}) \leq 0$， $h_j(\mathbf{x}) = 0$
+3. **对偶可行性**： $\mu_i \geq 0$
+4. **互补松弛**： $\mu_i g_i(\mathbf{x}) = 0$
 
 **互补松弛**含义：要么 $\mu_i = 0$（约束不活跃），要么 $g_i = 0$（约束紧绑定）。
 
@@ -731,9 +731,9 @@ $$\nabla_{\mathbf{w}} \mathcal{L} = 2C\mathbf{w} - 2\lambda\mathbf{w} = \mathbf{
 
 **随机变量**：将样本空间映射到实数的函数 $X: \Omega \to \mathbb{R}$。
 
-**离散分布**：用概率质量函数（PMF）$P(X = x)$ 描述，满足 $\sum_x P(X=x) = 1$。
+**离散分布**：用概率质量函数（PMF） $P(X = x)$ 描述，满足 $\sum_x P(X=x) = 1$。
 
-**连续分布**：用概率密度函数（PDF）$p(x)$ 描述，满足 $\int_{-\infty}^{+\infty} p(x) dx = 1$。
+**连续分布**：用概率密度函数（PDF） $p(x)$ 描述，满足 $\int_{-\infty}^{+\infty} p(x) dx = 1$。
 
 ### 期望、方差、协方差
 
@@ -763,12 +763,12 @@ $$\rho = \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}} \in [-1, 1]$$
 
 $$P(X = 1) = p, \quad P(X = 0) = 1-p$$
 
-- 期望：$p$，方差：$p(1-p)$
+- 期望： $p$，方差： $p(1-p)$
 - **ML应用**：二分类模型的输出（逻辑回归）
 
 ### 多项分布（Multinomial）
 
-$n$ 次独立试验，$k$ 个类别，第 $i$ 类概率 $p_i$：
+$n$ 次独立试验， $k$ 个类别，第 $i$ 类概率 $p_i$：
 
 $$P(X_1=k_1, \ldots, X_m=k_m) = \frac{n!}{k_1! \cdots k_m!} p_1^{k_1} \cdots p_m^{k_m}$$
 
@@ -780,7 +780,7 @@ $$p(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 
 记为 $X \sim \mathcal{N}(\mu, \sigma^2)$。
 
-**多维高斯**：$\mathbf{x} \sim \mathcal{N}(\boldsymbol{\mu}, \Sigma)$：
+**多维高斯**： $\mathbf{x} \sim \mathcal{N}(\boldsymbol{\mu}, \Sigma)$：
 
 $$p(\mathbf{x}) = \frac{1}{(2\pi)^{d/2}|\Sigma|^{1/2}} \exp\left(-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^T \Sigma^{-1} (\mathbf{x}-\boldsymbol{\mu})\right)$$
 
@@ -822,9 +822,9 @@ $$\underline{\boldsymbol{P(\theta | X) = \frac{P(X | \theta) \cdot P(\theta)}}{P
 **直觉**：贝叶斯定理是"更新信念"的数学方法。
 
 **示例（垃圾邮件）**：
-- 先验：$P(\text{垃圾}) = 0.3$
-- 似然：$P(\text{含"免费"}|\text{垃圾}) = 0.8$，$P(\text{含"免费"}|\text{正常}) = 0.1$
-- 后验：$P(\text{垃圾}|\text{含"免费"}) = \frac{0.8 \times 0.3}{0.8 \times 0.3 + 0.1 \times 0.7} \approx 0.77$
+- 先验： $P(\text{垃圾}) = 0.3$
+- 似然： $P(\text{含"免费"}|\text{垃圾}) = 0.8$， $P(\text{含"免费"}|\text{正常}) = 0.1$
+- 后验： $P(\text{垃圾}|\text{含"免费"}) = \frac{0.8 \times 0.3}{0.8 \times 0.3 + 0.1 \times 0.7} \approx 0.77$
 
 ---
 
@@ -851,7 +851,7 @@ $$H(p, q) = -\sum_x p(x) \log q(x)$$
 
 $$L = -\sum_{i} y_i \log \hat{y}_i$$
 
-其中 $y_i$ 是真实标签（one-hot），$\hat{y}_i$ 是模型预测概率。
+其中 $y_i$ 是真实标签（one-hot）， $\hat{y}_i$ 是模型预测概率。
 
 ### KL 散度
 
@@ -862,7 +862,7 @@ $$D_{\text{KL}}(p \| q) = \sum_x p(x) \log \frac{p(x)}{q(x)} = H(p, q) - H(p)$$
 **性质**：
 - $D_{\text{KL}}(p \| q) \geq 0$（Gibbs 不等式）
 - $D_{\text{KL}}(p \| q) = 0 \Leftrightarrow p = q$
-- **不对称**：$D_{\text{KL}}(p \| q) \neq D_{\text{KL}}(q \| p)$
+- **不对称**： $D_{\text{KL}}(p \| q) \neq D_{\text{KL}}(q \| p)$
 
 **VAE 中的作用**：KL 散度项迫使编码器输出的分布 $q(\mathbf{z}|\mathbf{x})$ 接近标准正态先验 $p(\mathbf{z}) = \mathcal{N}(0, I)$：
 
@@ -969,9 +969,9 @@ print(clf.predict(test))  # [1] — 垃圾邮件
 
 ### 贝叶斯线性回归
 
-先验：$\mathbf{w} \sim \mathcal{N}(\mathbf{0}, \alpha^{-1}I)$
+先验： $\mathbf{w} \sim \mathcal{N}(\mathbf{0}, \alpha^{-1}I)$
 
-似然：$y | \mathbf{x}, \mathbf{w} \sim \mathcal{N}(\mathbf{w}^T\mathbf{x}, \beta^{-1})$
+似然： $y | \mathbf{x}, \mathbf{w} \sim \mathcal{N}(\mathbf{w}^T\mathbf{x}, \beta^{-1})$
 
 后验（由于高斯共轭先验）：
 
@@ -996,8 +996,8 @@ $$D_{\text{KL}} = \frac{1}{2} \sum_{j=1}^d \left(\mu_j^2 + \sigma_j^2 - \log\sig
 ### 图的定义
 
 图 $G = (V, E)$：
-- $V$：顶点集，$|V| = n$
-- $E \subseteq V \times V$：边集，$|E| = m$
+- $V$：顶点集， $|V| = n$
+- $E \subseteq V \times V$：边集， $|E| = m$
 
 **分类**：
 
@@ -1012,9 +1012,9 @@ $$D_{\text{KL}} = \frac{1}{2} \sum_{j=1}^d \left(\mu_j^2 + \sigma_j^2 - \log\sig
 
 $$A_{ij} = \begin{cases} 1 & (i,j) \in E \\ 0 & \text{otherwise} \end{cases}$$
 
-**无向图**的邻接矩阵对称：$A = A^T$。
+**无向图**的邻接矩阵对称： $A = A^T$。
 
-**加权图**：$A_{ij} = w_{ij}$。
+**加权图**： $A_{ij} = w_{ij}$。
 
 **示例**：三角形图（顶点 0, 1, 2，三条边）：
 
@@ -1024,9 +1024,9 @@ $$A = \begin{pmatrix} 0 & 1 & 1 \\ 1 & 0 & 1 \\ 1 & 1 & 0 \end{pmatrix}$$
 
 $$D_{ii} = \text{deg}(i) = \sum_j A_{ij}$$
 
-$D$ 是对角矩阵，$D_{ii}$ 是顶点 $i$ 的度数（连接的边数）。
+$D$ 是对角矩阵， $D_{ii}$ 是顶点 $i$ 的度数（连接的边数）。
 
-对上例：$D = \text{diag}(2, 2, 2)$。
+对上例： $D = \text{diag}(2, 2, 2)$。
 
 ### 图信号
 
@@ -1079,7 +1079,7 @@ $$\mathbf{x}^T L \mathbf{x} = \mathbf{x}^T D \mathbf{x} - \mathbf{x}^T A \mathbf
 
 ### 图傅里叶基
 
-将 $L$ 做特征分解：$L = U \Lambda U^T$，特征向量矩阵 $U = [\mathbf{u}_1, \ldots, \mathbf{u}_n]$。
+将 $L$ 做特征分解： $L = U \Lambda U^T$，特征向量矩阵 $U = [\mathbf{u}_1, \ldots, \mathbf{u}_n]$。
 
 这些特征向量构成图的**傅里叶基**（类比连续域的正弦/余弦函数）。
 
@@ -1106,7 +1106,7 @@ $$\mathbf{f} * \mathbf{g} = U \left[ (U^T \mathbf{f}) \odot (U^T \mathbf{g}) \ri
 
 $$\mathbf{y} = U \text{diag}(\theta) U^T \mathbf{f} = g_\theta(L) \mathbf{f}$$
 
-**问题**：直接计算需要 $L$ 的特征分解，$O(n^3)$ 太贵。
+**问题**：直接计算需要 $L$ 的特征分解， $O(n^3)$ 太贵。
 
 ---
 
@@ -1244,16 +1244,16 @@ print(labels)  # 如 [0, 0, 0, 1, 1]
 
 ### 数学形式
 
-**转移矩阵** $M$：$M_{ij} = \frac{1}{d_j}$ 若存在边 $j \to i$，否则为 0。
+**转移矩阵** $M$： $M_{ij} = \frac{1}{d_j}$ 若存在边 $j \to i$，否则为 0。
 
 **Power iteration**：
 
 $$\mathbf{r}_{t+1} = \alpha M \mathbf{r}_t + \frac{1-\alpha}{n} \mathbf{1}$$
 
 - $\alpha \approx 0.85$：阻尼因子（$1-\alpha$ 的概率随机跳到任意页面）
-- 迭代直至收敛：$\mathbf{r}^* = $ 稳态向量
+- 迭代直至收敛： $\mathbf{r}^* = $ 稳态向量
 
-**收敛到**：$M$ 的最大特征向量（对应特征值 1）。
+**收敛到**： $M$ 的最大特征向量（对应特征值 1）。
 
 ```python
 def pagerank(A, alpha=0.85, max_iter=100):
