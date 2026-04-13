@@ -642,7 +642,10 @@ $$\mathbf{w}_{t+1} = \mathbf{w}_t - \eta \nabla L(\mathbf{w}_t)$$
 
 **收敛性**（凸函数情形）：若 $L$ 是 $\beta$-光滑凸函数，则：
 
-$$L(\mathbf{w}_T) - L(\mathbf{w}^*) \leq \frac{\|\mathbf{w}_0 - \mathbf{w}^*\|_2^2}{2\eta T}$$
+$$
+L\left( \mathbf{w}T \right) -L\left( \mathbf{w}^{} \right) \leq \frac{|\mathbf{w0}-\mathbf{w}_{2}^{|}^2}{2\eta T}
+$$
+
 
 学习率选 $\eta \leq 1/\beta$ 时收敛。
 
