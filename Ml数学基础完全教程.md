@@ -304,7 +304,7 @@ $$\text{tr}(A) = \sum_{i=1}^{n} A_{ii} = \sum_{i=1}^{n} \lambda_i$$
 
 矩阵 $A$ 的秩 = 线性无关的行数 = 线性无关的列数 = 非零奇异值个数。
 
-$$\text{rank}(A) = \#\{\sigma_i > 0\}$$
+$$\text{rank}(A) = \{\sigma_i > 0\}$$
 
 **实用判断**：若 $A \in \mathbb{R}^{m \times n}$ 且 $m < n$，则 $\text{rank}(A) \leq m$（行秩限制）。
 
