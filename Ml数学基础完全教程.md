@@ -680,7 +680,7 @@ max_norm = 1.0
 grad_norm = torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm)
 ```
 
-若 $|\mathbf{g}| > \text{max\_norm}$，则 $\mathbf{g} \leftarrow \mathbf{g} \cdot \frac{\text{max\_norm}}{|\mathbf{g}|}$ 。
+若 $\|\mathbf{g}\| > \text{max\_norm}$，则 $\mathbf{g} \leftarrow \mathbf{g} \cdot \frac{\text{max\_norm}}{\|\mathbf{g}\|}$ 。
 
 ---
 
@@ -812,7 +812,7 @@ $$P(A_1, A_2, \ldots, A_n) = P(A_1) \cdot P(A_2|A_1) \cdots P(A_n|A_1,\ldots,A_{
 
 ### 贝叶斯定理
 
-$$\underline{\boldsymbol{P(\theta | X) = \frac{P(X | \theta) \cdot P(\theta)}}{P(X)}}$$
+$$\underline{\boldsymbol{P(\theta | X) = \frac{P(X | \theta) \cdot P(\theta)}{P(X)}}}$$
 
 - $P(\theta)$：**先验**（Prior）—— 观测前对参数的信念
 - $P(X|\theta)$：**似然**（Likelihood）—— 参数为 $\theta$ 时数据出现的概率
