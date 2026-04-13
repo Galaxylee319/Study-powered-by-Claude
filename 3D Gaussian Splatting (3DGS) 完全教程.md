@@ -161,7 +161,7 @@ $$T_i = \prod_{j=1}^{i-1}(1-\alpha_j')$$
 
 $$\mathcal{L} = (1-\lambda)\mathcal{L}_1 + \lambda \mathcal{L}_{D-SSIM}$$
 
-- $\mathcal{L}_1 = \|\hat{I} - I_{gt}\|_1$：像素级 L1 损失
+- $\mathcal{L}_1 = \|\hat{I} - I_{gt}\|_1$ ：像素级 L1 损失
 - $\mathcal{L}_{D-SSIM}$：结构相似度损失，感知质量更好
 - $\lambda = 0.2$（原论文默认值）
 
