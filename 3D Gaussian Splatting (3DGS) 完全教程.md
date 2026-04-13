@@ -157,12 +157,12 @@ $$T_i = \prod_{j=1}^{i-1}(1-\alpha_j')$$
 
 ### 4.1 损失函数
 
-给定训练图像 $I_{gt}$，渲染图像 $\hat{I}$，损失为：
+给定训练图像 $I_{gt}$，渲染图像 $\hat{I}$ ，损失为：
 
 $$\mathcal{L} = (1-\lambda)\mathcal{L}_1 + \lambda \mathcal{L}_{D-SSIM}$$
 
-- $\mathcal{L}_1 = \|\hat{I} - I_{gt}\|_1$ ：像素级 L1 损失
-- $\mathcal{L}_{D-SSIM}$：结构相似度损失，感知质量更好
+- $\mathcal{L}_1 = \|\hat{I} - I_{gt}\|_1$ : 像素级 L1 损失
+- $\mathcal{L}_{D-SSIM}$ : 结构相似度损失，感知质量更好
 - $\lambda = 0.2$（原论文默认值）
 
 所有参数（位置、旋转、缩放、不透明度、球谐系数）全部通过梯度下降优化。
@@ -351,7 +351,7 @@ ns-train splatfacto --data ./data
 - **大场景**：VastGaussian、CityGaussian 分块处理城市级场景
 - **物理仿真**：PhysGaussian 让高斯遵从物理形变
 - **生成模型**：GaussianDreamer 结合扩散模型做3DGS生成
-- **SLAM**：Gaussian Splatting SLAM（你的GSoC方向与此高度相关！）将3DGS用作在线建图表示
+- **SLAM**：Gaussian Splatting SLAM 将3DGS用作在线建图表示
 
 ---
 
