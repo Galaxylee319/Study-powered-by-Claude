@@ -680,7 +680,7 @@ max_norm = 1.0
 grad_norm = torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm)
 ```
 
-若 $\|\mathbf{g}\| > \text{max\_norm}$，则 $\mathbf{g} \leftarrow \mathbf{g} \cdot \frac{\text{max\_norm}}{\|\mathbf{g}\|}$ 。
+若 $\|\mathbf{g}\| > \text{max\_norm}$,则 $\mathbf{g} \leftarrow \mathbf{g} \cdot \frac{\text{max\_norm}}{\|\mathbf{g}\|}$。
 
 ---
 
