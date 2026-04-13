@@ -642,7 +642,7 @@ $$\mathbf{w}_{t+1} = \mathbf{w}_t - \eta \nabla L(\mathbf{w}_t)$$
 
 **收敛性**（凸函数情形）：若 $L$ 是 $\beta$-光滑凸函数，则：
 
-$$L(\mathbf{w}_T) - L(\mathbf{w}^*) \leq \frac{|\mathbf{w}_0 - \mathbf{w}^*|_2^2}{2\eta T}$$
+$$L(\mathbf{w}_T) - L(\mathbf{w}^*) \leq \frac{\|\mathbf{w}_0 - \mathbf{w}^*\|_2^2}{2\eta T}$$
 
 学习率选 $\eta \leq 1/\beta$ 时收敛。
 
@@ -680,7 +680,7 @@ max_norm = 1.0
 grad_norm = torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm)
 ```
 
-若 $\|\mathbf{g}\| > \text{max\_norm}$，则 $\mathbf{g} \leftarrow \mathbf{g} \cdot \frac{\text{max\_norm}}{\|\mathbf{g}\|}$。
+若 $|\mathbf{g}| > \text{max\_norm}$，则 $\mathbf{g} \leftarrow \mathbf{g} \cdot \frac{\text{max\_norm}}{|\mathbf{g}|}$ 。
 
 ---
 
