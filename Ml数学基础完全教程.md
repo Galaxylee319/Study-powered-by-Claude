@@ -635,7 +635,7 @@ $$\frac{\partial L}{\partial z_j} = -\sum_k y_k \frac{\partial \log \hat{y}_k}{\
 
 ### 梯度下降（GD）
 
-$$\mathbf{w}_{t+1} = \mathbf{w}_t - \eta \nabla L(\mathbf{w}_t)$$
+$$L(\mathbf{w}_T) - L(\mathbf{w}^{*}) \leq \frac{|\mathbf{w}_0 - \mathbf{w}^{*}|_2^2}{2\eta T}$$
 
 - $\eta$：学习率
 - 每次用**全部**训练样本计算梯度
