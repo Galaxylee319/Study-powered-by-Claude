@@ -47,7 +47,9 @@ $$C_{ij} = \sum_{l=1}^{k} A_{il} B_{lj}$$
 **直觉**：$A$ 的第 $i$ 行与 $B$ 的第 $j$ 列做内积，得到 $C$ 的 $(i,j)$ 元素。
 
 **ML 中的应用**：全连接层的前向传播就是矩阵乘法：
+
 $$\mathbf{h} = W \mathbf{x} + \mathbf{b}$$
+
 其中 $W \in \mathbb{R}^{d_{\text{out}} \times d_{\text{in}}}$，$\mathbf{x} \in \mathbb{R}^{d_{\text{in}}}$。
 
 ```python
@@ -128,11 +130,23 @@ print(np.linalg.norm(x, ord=np.inf))  # L∞: 4.0
 
 常见线性变换的矩阵表示（二维）：
 
-| 变换 | 矩阵 |
-|------|------|
-| 旋转 $\theta$ 角 | $\begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$ |
-| 水平缩放 $c$ 倍 | $\begin{pmatrix} c & 0 \\ 0 & 1 \end{pmatrix}$ |
-| 投影到 $x$ 轴 | $\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$ |
+**旋转 $\theta$ 角：**
+
+$$
+\begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}
+$$
+
+**水平缩放 $c$ 倍：**
+
+$$
+\begin{pmatrix} c & 0 \\ 0 & 1 \end{pmatrix}
+$$
+
+**投影到 $x$ 轴：**
+
+$$
+\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}
+$$
 
 ### 基变换
 
@@ -162,7 +176,11 @@ $$A \mathbf{v} = \lambda \mathbf{v}$$
 
 $$\det(A - \lambda I) = 0 \quad \text{（特征多项式）}$$
 
-**示例**：$A = \begin{pmatrix} 3 & 1 \\ 0 & 2 \end{pmatrix}$
+**示例：**
+
+$$
+A = \begin{pmatrix} 3 & 1 \\ 0 & 2 \end{pmatrix}
+$$
 
 $$\det\begin{pmatrix} 3-\lambda & 1 \\ 0 & 2-\lambda \end{pmatrix} = (3-\lambda)(2-\lambda) = 0$$
 
@@ -217,7 +235,7 @@ print("特征向量:\n", eigenvectors)   # 列向量
 
 任意矩阵 $A \in \mathbb{R}^{m \times n}$（不要求方阵！）都可以分解为：
 
-$$\boxed{A = U \Sigma V^T}$$
+$$\underline{\boldsymbol{A = U \Sigma V^T}}$$
 
 其中：
 - $U \in \mathbb{R}^{m \times m}$：正交矩阵，列为**左奇异向量**
@@ -321,6 +339,7 @@ $$A = Q \Lambda Q^T$$
 $$R(\mathbf{x}) = \frac{\mathbf{x}^T A \mathbf{x}}{\mathbf{x}^T \mathbf{x}}$$
 
 **定理**：
+
 $$\lambda_{\min} \leq R(\mathbf{x}) \leq \lambda_{\max}$$
 
 且最大值在 $\mathbf{x} = \mathbf{v}_{\max}$（最大特征向量）处取到，最小值在 $\mathbf{x} = \mathbf{v}_{\min}$ 处取到。
@@ -396,7 +415,7 @@ $$L(\mathbf{w}) = (X\mathbf{w} - \mathbf{y})^T(X\mathbf{w} - \mathbf{y}) = \math
 
 $$\frac{\partial L}{\partial \mathbf{w}} = 2 X^T X \mathbf{w} - 2 X^T \mathbf{y} = \mathbf{0}$$
 
-$$\boxed{X^T X \mathbf{w} = X^T \mathbf{y}}$$
+$$\underline{\boldsymbol{X^T X \mathbf{w}} = X^T \mathbf{y}}$$
 
 若 $X^T X$ 可逆：$\mathbf{w}^* = (X^T X)^{-1} X^T \mathbf{y}$
 
@@ -567,23 +586,31 @@ $$\frac{\partial L}{\partial W_1} = \frac{\partial L}{\partial h_2} \cdot \frac{
 设网络：$\mathbf{h} = \sigma(W_1 \mathbf{x})$，$\hat{\mathbf{y}} = \text{softmax}(W_2 \mathbf{h})$，损失 $L = \text{CrossEntropy}(\hat{\mathbf{y}}, \mathbf{y})$
 
 **前向传播**：
+
 $$\mathbf{z}_1 = W_1 \mathbf{x}, \quad \mathbf{h} = \sigma(\mathbf{z}_1)$$
+
 $$\mathbf{z}_2 = W_2 \mathbf{h}, \quad \hat{\mathbf{y}} = \text{softmax}(\mathbf{z}_2)$$
+
 $$L = -\sum_j y_j \log \hat{y}_j$$
 
 **反向传播**（链式法则）：
 
 **Step 1**：Softmax + CrossEntropy 的梯度（经典结果）：
+
 $$\frac{\partial L}{\partial \mathbf{z}_2} = \hat{\mathbf{y}} - \mathbf{y}$$
 
 **Step 2**：对 $W_2$ 的梯度：
+
 $$\frac{\partial L}{\partial W_2} = \frac{\partial L}{\partial \mathbf{z}_2} \cdot \mathbf{h}^T = (\hat{\mathbf{y}} - \mathbf{y}) \mathbf{h}^T$$
 
 **Step 3**：传递到第一层：
+
 $$\frac{\partial L}{\partial \mathbf{h}} = W_2^T (\hat{\mathbf{y}} - \mathbf{y})$$
+
 $$\frac{\partial L}{\partial \mathbf{z}_1} = \frac{\partial L}{\partial \mathbf{h}} \odot \sigma'(\mathbf{z}_1)$$
 
 **Step 4**：对 $W_1$ 的梯度：
+
 $$\frac{\partial L}{\partial W_1} = \frac{\partial L}{\partial \mathbf{z}_1} \cdot \mathbf{x}^T$$
 
 ### Softmax + 交叉熵梯度推导
@@ -614,6 +641,7 @@ $$\mathbf{w}_{t+1} = \mathbf{w}_t - \eta \nabla L(\mathbf{w}_t)$$
 - 每次用**全部**训练样本计算梯度
 
 **收敛性**（凸函数情形）：若 $L$ 是 $\beta$-光滑凸函数，则：
+
 $$L(\mathbf{w}_T) - L(\mathbf{w}^*) \leq \frac{\|\mathbf{w}_0 - \mathbf{w}^*\|_2^2}{2\eta T}$$
 
 学习率选 $\eta \leq 1/\beta$ 时收敛。
@@ -712,6 +740,7 @@ $$\nabla_{\mathbf{w}} \mathcal{L} = 2C\mathbf{w} - 2\lambda\mathbf{w} = \mathbf{
 **期望**（均值）：
 
 $$\mathbb{E}[X] = \sum_x x \cdot P(X=x) \quad \text{（离散）}$$
+
 $$\mathbb{E}[X] = \int x \cdot p(x) dx \quad \text{（连续）}$$
 
 **方差**（离散程度）：
@@ -783,7 +812,7 @@ $$P(A_1, A_2, \ldots, A_n) = P(A_1) \cdot P(A_2|A_1) \cdots P(A_n|A_1,\ldots,A_{
 
 ### 贝叶斯定理
 
-$$\boxed{P(\theta | X) = \frac{P(X | \theta) \cdot P(\theta)}{P(X)}}$$
+$$\underline{\boldsymbol{P(\theta | X) = \frac{P(X | \theta) \cdot P(\theta)}}{P(X)}}$$
 
 - $P(\theta)$：**先验**（Prior）—— 观测前对参数的信念
 - $P(X|\theta)$：**似然**（Likelihood）—— 参数为 $\theta$ 时数据出现的概率
