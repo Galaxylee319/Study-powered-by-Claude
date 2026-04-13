@@ -1,3 +1,4 @@
+
 # 3D Gaussian Splatting (3DGS) 完全教程
 
 ---
@@ -371,5 +372,3 @@ COLMAP SfM → 稀疏点云 + 相机位姿
     ↓
 输出：point_cloud.ply（高斯场）→ 实时渲染 >100FPS
 ```
-
----
